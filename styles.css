@@ -1,0 +1,506 @@
+@font-face {
+    font-family: "space-mono";
+    src: url(font/Space_Mono/SpaceMono-Bold.ttf);
+    font-weight: 700;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+h1,
+p {
+    overflow-wrap: break-word;
+}
+
+input,
+button {
+    font: inherit;
+    outline: none;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+:root {
+    /*Typography*/
+
+    /*font-weight*/
+    --font-weight-bold: 700;
+
+    /*font-size*/
+    --font-size-h1: 1rem;
+    --font-size-h2: 1rem;
+    --font-size-p-large-mobile: 2rem;
+    --font-size-p-large-desktop: 3rem;
+    --font-size-p-medium: 1.5rem;
+    --font-size-p-extraMedium: 1.25rem;
+    --font-size-p-Small: 0.813rem;
+    --font-size-p-error: 1rem;
+    --font-size-p-error-small: 0.5rem;
+
+    /*letter-spacing*/
+    --letter-spacing-mobile: -0.042rem;
+    --letter-spacing-desktop: -0.063rem;
+
+    /*Colors*/
+    --strongCyan: hsl(172, 67%, 45%);
+    --veryDarkCyan: hsl(183, 100%, 15%);
+    --deepTealCyan: hsl(183, 79%, 24%);
+    --darkGrayishCyan: hsl(186, 14%, 43%);
+    --grayishCyan: hsl(184, 14%, 56%);
+    --lightGrayishCyan: hsl(185, 41%, 84%);
+    --lightMintCyan: hsl(172, 67%, 75%);
+    --mistyCyan: hsl(189, 41%, 84%);
+    --veryLightGrayishCyan: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --lightCoral: hsl(11, 61%, 59%);
+}
+
+body {
+    font-family: "space-mono", sans-serif;
+    font-weight: var(--font-weight-bold);
+    background-color: var(--mistyCyan);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    margin: 3.125rem 0 2.554rem;
+}
+
+.calcApp__main-section {
+    background-color: var(--white);
+    border-top-left-radius: 1.563rem;
+    border-top-right-radius: 1.563rem;
+    padding: 2rem 0;
+    display: grid;
+    grid-template-areas:
+        "bill"
+        "tip"
+        "people"
+        "result";
+    gap: 2rem;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    color: var(--darkGrayishCyan);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    color: var(--white);
+}
+
+.calcApp__billSection {
+    grid-area: bill;
+    margin: 0 2rem;
+}
+
+.calcApp__billAmount-wrapper {
+    margin-top: 0.375rem;
+    padding: 0.375rem 1.093rem 0.375rem 11.696rem;
+    background-color: var(--veryLightGrayishCyan);
+    border-radius: 0.313rem;
+    background-image: url(images/icon-dollar.svg);
+    background-repeat: no-repeat;
+    background-position: left 19.26px center;
+}
+
+.calcApp__billAmount-wrapper:hover {
+    outline: 2px solid var(--strongCyan);
+    cursor: pointer;
+}
+
+.calcApp__billAmount {
+    max-width: 6.65rem;
+    max-height: 2.25rem;
+    background-color: transparent;
+    font-size: var(--font-size-p-medium);
+    color: var(--veryDarkCyan);
+    border: none;
+}
+
+.calcApp__billAmount:hover {
+    cursor: pointer;
+}
+
+.calcApp__tipSelection {
+    grid-area: tip;
+    margin: 0 2rem;
+}
+
+.calcApp__tipSelection-options {
+    margin-top: 1rem;
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    column-gap: 1.035rem;
+}
+
+li {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.tipOption {
+    background-color: var(--veryDarkCyan);
+    font-size: var(--font-size-p-medium);
+    color: var(--white);
+    padding: 0.375rem 0;
+    border-radius: 0.313rem;
+    border: none;
+}
+
+.tipOption:hover {
+    background-color: var(--lightMintCyan);
+    color: var(--veryDarkCyan);
+    cursor: pointer;
+}
+
+.customTipOption-wrapper {
+    padding: 0.375rem 1.083rem 0.375rem 1.188rem;
+    border-radius: 0.313rem;
+}
+
+.customTipOption-wrapper:hover {
+    outline: 2px solid var(--strongCyan);
+    cursor: pointer;
+}
+
+.customTipOption {
+    max-width: 6.968rem;
+    max-height: 2.25rem;
+    background-color: transparent;
+    font-size: var(--font-size-p-medium);
+    color: var(--veryDarkCyan);
+    border: none;
+}
+
+.customTipOption:hover {
+    cursor: pointer;
+}
+
+.customTipOption::placeholder {
+    color: var(--darkGrayishCyan);
+}
+
+.calcApp__peopleSelection {
+    grid-area: people;
+    margin: 0 2rem;
+}
+
+.calcApp__peopleSelectionValue-wrapper {
+    margin-top: 0.375rem;
+    padding: 0.375rem 1.045rem 0.375rem 13.875rem;
+    background-color: var(--veryLightGrayishCyan);
+    border-radius: 0.313rem;
+    background-image: url(images/icon-person.svg);
+    background-repeat: no-repeat;
+    background-position: left 17px center;
+}
+
+.calcApp__peopleSelectionValue-wrapper:hover {
+    outline: 2px solid var(--strongCyan);
+    cursor: pointer;
+}
+
+.calcApp__peopleSelectionValue {
+    width: 4.518rem;
+    height: 2.25rem;
+    background-color: transparent;
+    font-size: var(--font-size-p-medium);
+    color: var(--veryDarkCyan);
+    border: none;
+}
+
+.calcApp__peopleSelectionValue:hover {
+    cursor: pointer;
+}
+
+.calcApp__resultSection {
+    grid-area: result;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 0 1.5rem;
+    background-color: var(--veryDarkCyan);
+    border-radius: 0.938rem;
+    padding: 2.313rem 1.375rem 1.5rem 1.5rem;
+}
+
+.calcApp__resultSection-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+.calcApp__resultSection-tipAmount,
+.calcApp__resultSection-totalAmount {
+    display: flex;
+    justify-content: space-between;
+    gap: 5.438rem;
+    align-items: center;
+}
+
+.calcApp__resultSection-label {
+    color: var(--grayishCyan);
+}
+
+.final-amount {
+    font-size: var(--font-size-p-large-mobile);
+    color: var(--strongCyan);
+}
+
+.calcApp__resetButton {
+    font-size: var(--font-size-p-extraMedium);
+    color: var(--veryDarkCyan);
+    background-color: var(--strongCyan);
+    border-radius: 0.313rem;
+    padding: 0.563rem 0 0.625rem;
+    border: none;
+}
+
+.calcApp__resetButton:hover {
+    background-color: var(--lightMintCyan);
+    cursor: pointer;
+}
+
+/*javaScript based Classes*/
+
+.text-break {
+    display: inline-block;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 100px;
+    line-height: 1.4;
+}
+
+.tipOptionSelected {
+    background-color: var(--strongCyan);
+    color: var(--veryDarkCyan);
+}
+
+.tipOptionSelected:hover {
+    background-color: var(--strongCyan);
+}
+
+.errorAlert-1,
+.errorAlert-2,
+.errorAlert-3 {
+    outline: 2px solid var(--lightCoral);
+}
+
+.errorAlert-1:hover,
+.errorAlert-2:hover,
+.errorAlert-3:hover {
+    outline: 2px solid var(--lightCoral);
+}
+
+.errorMessage-1,
+.alertMessage,
+.errorMessage-3 {
+    font-size: var(--font-size-p-error);
+    color: var(--lightCoral);
+}
+
+.errorFlex-1,
+.alertFlex,
+.errorFlex-3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.errorMessage-2 {
+    font-size: var(--font-size-p-error-small);
+    color: var(--lightCoral);
+}
+
+.errorFlex-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.noReset {
+    background-color: var(--deepTealCyan);
+}
+
+.noReset:hover {
+    background-color: var(--deepTealCyan);
+}
+
+.update__grid-style {
+    background-color: var(--white);
+    display: grid;
+    grid-template-areas:
+        "bill"
+        "tip"
+        "people"
+        "result";
+    gap: 2rem;
+    border-radius: 1.563rem;
+    padding: 2rem 2rem 2rem 3rem;
+    margin-bottom: 14.938rem;
+    justify-items: center;
+}
+
+.temporaryField-wrapper-1 {
+    border-radius: 0.313rem;
+    padding: 0.375rem 0.938rem 0.375rem 0.875rem;
+}
+
+.temporaryField-wrapper-1:hover {
+    outline: 2px solid var(--strongCyan);
+}
+
+.temporaryField-1 {
+    text-align: right;
+    max-width: 5.563rem;
+    max-height: 2.25rem;
+    background-color: transparent;
+    font-size: var(--font-size-p-medium);
+    color: var(--darkGrayishCyan);
+    border: none;
+}
+
+.temporaryField-wrapper-2 {
+    margin-top: 0.375rem;
+    padding: 0.375rem 1.045rem 0.375rem 13.875rem;
+    background-color: var(--veryLightGrayishCyan);
+    border-radius: 0.313rem;
+    background-image: url(images/icon-person.svg);
+    background-repeat: no-repeat;
+    background-position: left 17px center;
+}
+
+.temporaryField-wrapper-2:hover {
+    outline: 2px solid var(--strongCyan);
+}
+
+.temporaryField-2 {
+    height: 2.25rem;
+    background-color: transparent;
+    font-size: var(--font-size-p-medium);
+    color: var(--veryDarkCyan);
+    border: none;
+}
+
+@media (min-width: 90rem) {
+    header {
+        margin: 10.188rem 0 5.491rem;
+    }
+
+    .calcApp__main-section {
+        grid-template-columns: 0.9fr 1.08971fr;
+        grid-template-areas:
+            "bill result"
+            "tip result"
+            "people result";
+        row-gap: 2.5rem;
+        column-gap: 3rem;
+        border-radius: 1.563rem;
+        padding: 2rem 2rem 2rem 3rem;
+        margin-bottom: 14.938rem;
+    }
+
+    .calcApp__billSection,
+    .calcApp__tipSelection,
+    .calcApp__peopleSelection,
+    .calcApp__resultSection {
+        margin: 0;
+    }
+
+    .calcApp__billSection,
+    .calcApp__tipSelection,
+    .calcApp__peopleSelection {
+        max-width: 379px;
+    }
+
+    .calcApp__billSection {
+        margin-top: 0.813rem;
+    }
+
+    .calcApp__billAmount-wrapper {
+        padding: 0.375rem 1.063rem 0.375rem 17.063rem;
+    }
+
+    .calcApp__billAmount {
+        max-width: 5.563rem;
+    }
+
+    .calcApp__tipSelection-options {
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 1rem;
+        column-gap: 0.875rem;
+    }
+
+    .customTipOption-wrapper {
+        padding: 0.375rem 0.938rem 0.375rem 0.875rem;
+    }
+
+    .customTipOption {
+        max-width: 5.563rem;
+    }
+
+    .calcApp__peopleSelection {
+        margin-bottom: 1rem;
+    }
+
+    .calcApp__peopleSelectionValue-wrapper {
+        padding: 0.375rem 1.063rem 0.375rem 17.063rem;
+    }
+
+    .calcApp__peopleSelectionValue {
+        width: 5.563rem;
+    }
+
+    .calcApp__resultSection {
+        padding: 2.5rem;
+        gap: 7.625rem;
+    }
+
+    .calcApp__resultSection-container {
+        gap: 1.563rem;
+    }
+
+    .calcApp__resultSection-tipAmount,
+    .calcApp__resultSection-totalAmount {
+        gap: 5.438rem;
+    }
+
+    .final-amount {
+        font-size: var(--font-size-p-large-desktop);
+    }
+
+    .calcApp__resetButton {
+        padding: 0.563rem 0;
+    }
+}

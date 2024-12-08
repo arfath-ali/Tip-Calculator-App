@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+
+  <title>Frontend Mentor | Tip calculator app</title>
+</head>
+
+<body>
+
+  <header>
+    <img src="images/logo.svg" alt="Logo" />
+  </header>
+
+  <main class="calcApp__main-section">
+
+    <section class="calcApp__billSection">
+      <div class="calcApp__billSection-label">
+        <h1>Bill</h1>
+      </div>
+      <div class="calcApp__billAmount-wrapper">
+        <label for="bill"></label>
+        <input class="calcApp__billAmount" id="bill" type="text" name="bill" style="text-align: right">
+      </div>
+    </section>
+
+    <section class="calcApp__tipSelection">
+      <h1>Select Tip %</h1>
+      <ul class="calcApp__tipSelection-options">
+        <li><button class="tipOption">5%</button></li>
+        <li><button class="tipOption">10%</button></li>
+        <li><button class="tipOption">15%</button></li>
+        <li><button class="tipOption">25%</button></li>
+        <li><button class="tipOption">50%</button></li>
+        <li class="customTipOption-list">
+          <div class="customTipOption-wrapper">
+            <label for="tipSelection"></label>
+            <input class="customTipOption" id="tipSelection" type="text" name="tipSelection" placeholder="Custom"
+              style="text-align: right">
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="calcApp__peopleSelection">
+      <div class="calcApp__peopleSelection-label">
+        <h1>Number of People</h1>
+      </div>
+      <div class="calcApp__peopleSelectionValue-wrapper">
+        <label for="people"></label>
+        <input class="calcApp__peopleSelectionValue" id="people" type="text" name="people" style="text-align: right">
+      </div>
+    </section>
+
+    <section class="calcApp__resultSection">
+      <div class="calcApp__resultSection-container">
+        <div class="calcApp__resultSection-tipAmount">
+          <div>
+            <h2>Tip Amount</h2>
+            <p class="calcApp__resultSection-label">/ person</p>
+          </div>
+          <p class="calcApp__tip-amount final-amount"></p>
+        </div>
+
+        <div class="calcApp__resultSection-totalAmount">
+          <div>
+            <h2>Total</h2>
+            <p class="calcApp__resultSection-label">/ person</p>
+          </div>
+          <p class="calcApp__total-amount final-amount"></p>
+        </div>
+      </div>
+      <button class="calcApp__resetButton">RESET</button>
+    </section>
+
+  </main>
+
+  <footer></footer>
+</body>
+
+</html>
